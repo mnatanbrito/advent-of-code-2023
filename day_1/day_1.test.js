@@ -1,12 +1,12 @@
-import { readFile } from "../utils";
+import { readFile, replaceNonDigits } from "../utils";
 
-function readCalibrationDocument(data) {
+function day1(data) {
   // split input into lines
   const lines = data.split("\n");
   const calibrationValues = [];
   for (const line of lines) {
     // keep only the digits
-    let candidateValue = (line || "").replaceAll(/\D+/g, "").split("");
+    let candidateValue = replaceNonDigits(line).split("");
 
     // make sure only the first and last are kept
     if (candidateValue.length > 0) {
@@ -36,7 +36,7 @@ describe("day 1", () => {
   });
 
   test("Should decode calibration document successfully", () => {
-    expect(readCalibrationDocument(testData)).toEqual(142);
-    expect(readCalibrationDocument(inputData)).toEqual(55123);
+    expect(day1(testData)).toEqual(142);
+    expect(day1(inputData)).toEqual(55123);
   });
 });
