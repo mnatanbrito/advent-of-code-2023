@@ -32,7 +32,7 @@ describe("day 1", () => {
   let inputData;
 
   beforeEach(async () => {
-    inputData = await readFile("day_1/data.txt");
+    inputData = await readFile("day_1/1.txt");
   });
 
   test("Should decode calibration document successfully", () => {
